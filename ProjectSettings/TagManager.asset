@@ -1,0 +1,69 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - backGround
+  - wAg
+  - Leviathan
+  - OuterWall
+  - circle
+  - EnemyLaser
+  - EnemyBomb
+  - EnemyEMP
+  - TrapType_ONE
+  - TrapType_TWO
+  - TrapType_FOUR
+  - TrapType_THREE
+  - Enemy
+  - PlayerLaser
+  - Exit
+  - E1
+  - E2
+  - E3
+  - E4
+  - Sword
+  - Collectable
+  - Health
+  - Shield
+  - Ammo
+  - w1
+  - sp
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - Player_Layer
+  - Walls_Layer
+  - Leviathan_Layer
+  - Enemy_Layer
+  - EnemyLasers
+  - Traps
+  - Player_Lasers
+  - SwordLayer
+  - Collectable
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
