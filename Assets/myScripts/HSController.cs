@@ -1,4 +1,7 @@
-﻿using UnityEngine;
+﻿// File provided by http://wiki.unity3d.com/index.php?title=Server_Side_Highscores
+// Modified by @ stephen collins
+
+using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
  

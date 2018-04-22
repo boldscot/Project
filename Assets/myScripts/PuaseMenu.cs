@@ -1,4 +1,11 @@
-﻿using UnityEngine;
+﻿/*
+ * @ author: stephen collins
+ * @ student number: 20061696
+ * @ date: 22/04/2018
+ * @ brief: This file is part of the source code for the game Isolation
+*/
+
+using UnityEngine;
 using UnityEngine.UI;
 
 public class PuaseMenu : MonoBehaviour {
@@ -47,6 +54,7 @@ public class PuaseMenu : MonoBehaviour {
 
         // when an upgrade is chosen, hide window and unpause the game
         if (ProgressionUnlocks.pu.picked) {
+            onUpgrades = false;
             upgrades.SetActive(false);
             Time.timeScale = 1.0f;
             ProgressionUnlocks.pu.picked = false;

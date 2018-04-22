@@ -1,6 +1,8 @@
 /*
-	@author Stephen Collins
-	@date 30/10/2017
+ * @ author: stephen collins
+ * @ student number: 20061696
+ * @ date: 22/04/2018
+ * @ brief: This file is part of the source code for the game Isolation
 */
 
 using System.Collections.Generic;

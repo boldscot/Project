@@ -1,4 +1,5 @@
 //FPS Counter taken from Unity Wiki http://wiki.unity3d.com/index.php?title=FramesPerSecond
+// Used for development purposes only
 
 using UnityEngine;
 using System.Collections;

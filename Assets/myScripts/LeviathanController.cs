@@ -1,4 +1,11 @@
-﻿using UnityEngine;
+﻿/*
+ * @ author: stephen collins
+ * @ student number: 20061696
+ * @ date: 22/04/2018
+ * @ brief: This file is part of the source code for the game Isolation
+*/
+
+using UnityEngine;
 
 public class LeviathanController : EnemyController {
     // Raycasts for ground detection
@@ -20,6 +27,7 @@ public class LeviathanController : EnemyController {
     private float shootTimer;
     public float idleTimer;
     public float downTimer;
+    public bool isJumping;
 
     public float angle;
 
@@ -45,6 +53,7 @@ public class LeviathanController : EnemyController {
         jumpCount = 3;
         jumpForce.y = jumpForce.y * 50.0f;
         isOnSameLevel = false;
+        isJumping = false;
         bombShootTimer = 0.0f;
         idleTimer = 2.0f;
         downTimer = 5.0f;
@@ -68,7 +77,7 @@ public class LeviathanController : EnemyController {
 
         switch (state) {
             case State.FOLLOWING:
-                if (player.transform.position.x < transform.position.x - 2.0f || player.transform.position.x > transform.position.x + 2.0f) {
+                if (player.transform.position.x < transform.position.x - 3.0f || player.transform.position.x > transform.position.x + 3.0f && !isJumping) {
                     // Set velocity based on player position
                     rigidBody2D.velocity = (isFacingLeft) ? -Vector2.right * Time.deltaTime * 100.0f : Vector2.right * Time.deltaTime * 100.0f;
                     print("LEVEIATHAN MVOING ON X");
@@ -99,6 +108,7 @@ public class LeviathanController : EnemyController {
                     isOnSameLevel = false;
                     if (jumpTimer > 0.0f && jumpCount > 0) {
                         jumpTimer -= Time.deltaTime;
+                        isJumping = true;
 
                         // If jump time is 0, jump then reset the timer and decrement the jump count
                         if (jumpTimer <= 0.0f) {
@@ -109,6 +119,7 @@ public class LeviathanController : EnemyController {
 
                         // Jump count is zero, time to destroy the terrain
                         if (jumpCount == 0) {
+                            isJumping = false;
                             jumpCount = 3;
                             jumpTimer = 1.5f;
                             canDestroy = true;
@@ -118,7 +129,7 @@ public class LeviathanController : EnemyController {
                             state = State.DESTROYING;
                         }
                     }
-                } else if (player.transform.position.y > gameObject.transform.position.y + 3.0f) {
+                } else if (player.transform.position.y > gameObject.transform.position.y + 3.0f && !isJumping) {
                     // Debug.Log("APPLYING FORCE");
                     canDestroy = true;
                     isOnSameLevel = true;
@@ -142,6 +153,7 @@ public class LeviathanController : EnemyController {
     // Update is called once per frame
     protected override void Update() {
         base.Update();
+        print("LEV STATE=" + state);
         info = anim.GetCurrentAnimatorStateInfo(0);
 
         // Set the direction of rays using player position
